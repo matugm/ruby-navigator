@@ -1,14 +1,13 @@
 {
   "name": "ruby-navigator",
   "main": "./lib/ruby-navigator",
-  "version": "0.0.1",
-  "description": "A short description of your package",
-  "keywords": [
-  ],
+  "version": "0.1.0",
+  "description": "This package shows a panel with Ruby classes and methods on your project.",
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "ruby-navigator:toggle"
   },
-  "repository": "https://github.com/atom/ruby-navigator",
+  "repository": "https://github.com/matugm/ruby-navigator",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
