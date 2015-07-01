@@ -1,10 +1,9 @@
 {
   "name": "ruby-navigator",
   "main": "./lib/ruby-navigator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A short description of your package",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "ruby-navigator:toggle"
   },
