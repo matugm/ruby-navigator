@@ -1,4 +1,5 @@
-fs  = require 'fs-plus'
+fs   = require 'fs-plus'
+path = require 'path'
 
 # jQuery
 {$} = require('atom-space-pen-views')
@@ -19,7 +20,8 @@ class RubyNavigatorView
     @navigator.classList.add('ruby-navigator')
 
   load_data: ->
-    file = atom.project.getPaths()[0] + "\\class-index.json"
+    projectPath = atom.project.getPaths()[0]
+    file = path.join(projectPath, 'class-index.json')
 
     return if (!fs.existsSync(file))
 
