@@ -42,7 +42,7 @@ class RubyNavigatorView
     @navigator.appendChild(message)
 
   add_class: (name) ->
-    message = document.createElement('a')
+    message = document.createElement('div')
     message.textContent = name
     message.classList.add('ruby-class')
     @navigator.appendChild(message)
