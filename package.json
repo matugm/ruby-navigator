@@ -1,7 +1,7 @@
 {
   "name": "ruby-navigator",
   "main": "./lib/ruby-navigator",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "This package shows a panel with Ruby classes and methods on your project.",
   "keywords": [],
   "activationCommands": {
