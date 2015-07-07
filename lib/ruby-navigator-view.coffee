@@ -9,7 +9,8 @@ $(document).ready ->
   $('.method').on 'click', (e) ->
     method  = $(this)
     promise = atom.workspace.open(method.data("name"), { initialLine: method.data("line") })
-    #console.log (method.data("name") + " " + method.data("line"))
+  $('.ruby-class').on 'click', (e) ->
+    $(this).children().slideToggle()
 
 module.exports =
 class RubyNavigatorView
@@ -30,22 +31,23 @@ class RubyNavigatorView
 
     for own file_name of json
       for own class_name of json[file_name]
-        (this.add_class(class_name))
-        (this.add_method(method, file_name) for method in json[file_name][class_name])
+        class_element = this.add_class(class_name)
+        (this.add_method(method, file_name, class_element) for method in json[file_name][class_name])
 
-  add_method: (method, file_name) ->
+  add_method: (method, file_name, class_element) ->
     message = document.createElement('a')
     message.textContent = method["name"]
     message.setAttribute('data-name', file_name) # needs to be file name instead of method name
     message.setAttribute('data-line', method["line"])
     message.classList.add('method')
-    @navigator.appendChild(message)
+    class_element.appendChild(message)
 
   add_class: (name) ->
-    message = document.createElement('div')
-    message.textContent = name
-    message.classList.add('ruby-class')
-    @navigator.appendChild(message)
+    ruby_class = document.createElement('div')
+    ruby_class.textContent = name
+    ruby_class.classList.add('ruby-class')
+    @navigator.appendChild(ruby_class)
+    return ruby_class
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
