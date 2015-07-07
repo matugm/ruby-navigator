@@ -10,6 +10,7 @@ $(document).ready ->
     method  = $(this)
     promise = atom.workspace.open(method.data("name"), { initialLine: method.data("line") })
   $('.ruby-class').on 'click', (e) ->
+    return unless (e.target == this)
     $(this).children().slideToggle()
 
 module.exports =
