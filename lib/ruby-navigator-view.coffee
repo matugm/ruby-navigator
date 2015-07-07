@@ -24,7 +24,9 @@ class RubyNavigatorView
     projectPath = atom.project.getPaths()[0]
     file = path.join(projectPath, 'class-index.json')
 
-    return if (!fs.existsSync(file))
+    if (!fs.existsSync(file))
+      this.display_missing_file_warning()
+      return
 
     contents = fs.readFileSync(file)
     json     = JSON.parse(contents)
@@ -48,6 +50,12 @@ class RubyNavigatorView
     ruby_class.classList.add('ruby-class')
     @navigator.appendChild(ruby_class)
     return ruby_class
+
+  display_missing_file_warning: ->
+    atom.notifications.addWarning(
+     'Missing class-index.json.
+     You can generate it using the indexer
+     command from the class-indexer gem.')
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
